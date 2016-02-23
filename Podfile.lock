@@ -1,0 +1,47 @@
+PODS:
+  - Alamofire (3.2.0)
+  - Moya (6.1.3):
+    - Moya/Core (= 6.1.3)
+  - Moya-ObjectMapper (1.1.6):
+    - Moya-ObjectMapper/Core (= 1.1.6)
+  - Moya-ObjectMapper/Core (1.1.6):
+    - Moya (~> 6.1.3)
+    - ObjectMapper (~> 1.1.4)
+  - Moya/Core (6.1.3):
+    - Alamofire (~> 3.0)
+    - Result (~> 1.0)
+  - Moya/RxSwift (6.1.3):
+    - Moya/Core
+    - RxSwift (~> 2.0)
+  - ObjectMapper (1.1.5)
+  - Result (1.0.2)
+  - RxBlocking (2.1.0):
+    - RxSwift (~> 2.0)
+  - RxCocoa (2.1.0):
+    - RxSwift (~> 2.0)
+  - RxSwift (2.1.0)
+  - RxWebKit (0.1.0):
+    - RxCocoa (~> 2.1.0)
+    - RxSwift (~> 2.1.0)
+
+DEPENDENCIES:
+  - Moya
+  - Moya-ObjectMapper (~> 1.1.2)
+  - Moya/RxSwift
+  - RxBlocking (~> 2.0)
+  - RxCocoa (~> 2.0)
+  - RxSwift (~> 2.0)
+  - RxWebKit
+
+SPEC CHECKSUMS:
+  Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
+  Moya: 26b290a8d675c167ea6229ba08e07dce562265a5
+  Moya-ObjectMapper: bd47d94e91f469b7809732f7f99f69234267ac63
+  ObjectMapper: 528b1a6677a6acac7747edd508576983e76a9148
+  Result: dd3dd71af3fa2e262f1a999e14fba2c25ec14f16
+  RxBlocking: fa297def258d85c5beae9ed507f94645260b3747
+  RxCocoa: 79b5feb8378545336e756a0a33fcf5e95050b71c
+  RxSwift: 110fb07f81c17c2c3b3254d168363057b1880d18
+  RxWebKit: fb21604f9f8f763c1301962faf52710665e44fa5
+
+COCOAPODS: 0.39.0

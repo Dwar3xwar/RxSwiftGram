@@ -1,0 +1,9 @@
+use_frameworks!
+
+pod 'Moya'
+pod 'Moya-ObjectMapper', '~> 1.1.2'
+pod 'RxSwift',    '~> 2.0'
+pod 'RxCocoa',    '~> 2.0'
+pod 'RxBlocking', '~> 2.0'
+pod 'Moya/RxSwift'
+pod 'RxWebKit'
