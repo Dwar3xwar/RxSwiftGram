@@ -9,7 +9,8 @@
 import Foundation
 
 class AppSetup {
-    var accessToken: String = ""
+    var accessToken = ""
+    var hasAccessToken = false
     
     class var sharedState: AppSetup {
         struct Static {
@@ -23,5 +24,7 @@ class AppSetup {
         if let token = defaults.stringForKey("accessToken"){
             accessToken = token
         }
+        
+        hasAccessToken = defaults.boolForKey("hasAccessToken")
     }
 }

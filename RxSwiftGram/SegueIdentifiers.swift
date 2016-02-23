@@ -9,5 +9,6 @@
 import Foundation
 
 enum SegueIdentifiers: String {
+    case LoginViewController = "loginView"
     case ImagesViewController = "imagesView"
 }

@@ -10,6 +10,7 @@
 		31E2AFFC1C7D024E00DB1F74 /* SegueIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E2AFFB1C7D024D00DB1F74 /* SegueIdentifiers.swift */; };
 		31E2AFFE1C7D02DE00DB1F74 /* ImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E2AFFD1C7D02DE00DB1F74 /* ImagesViewController.swift */; };
 		31E2B0001C7D045200DB1F74 /* AppSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E2AFFF1C7D045200DB1F74 /* AppSetup.swift */; };
+		31E2B0051C7D063A00DB1F74 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E2B0041C7D063A00DB1F74 /* AppViewController.swift */; };
 		31FB712A1C7BE57000D0E166 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB71291C7BE57000D0E166 /* AppDelegate.swift */; };
 		31FB712C1C7BE57000D0E166 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB712B1C7BE57000D0E166 /* LoginViewController.swift */; };
 		31FB712F1C7BE57000D0E166 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31FB712D1C7BE57000D0E166 /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 		31E2AFFB1C7D024D00DB1F74 /* SegueIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueIdentifiers.swift; sourceTree = "<group>"; };
 		31E2AFFD1C7D02DE00DB1F74 /* ImagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesViewController.swift; sourceTree = "<group>"; };
 		31E2AFFF1C7D045200DB1F74 /* AppSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSetup.swift; sourceTree = "<group>"; };
+		31E2B0041C7D063A00DB1F74 /* AppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
 		31FB71261C7BE57000D0E166 /* RxSwiftGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31FB71291C7BE57000D0E166 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31FB712B1C7BE57000D0E166 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +87,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31E2B0011C7D057100DB1F74 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				31FB712B1C7BE57000D0E166 /* LoginViewController.swift */,
+				31E2AFFD1C7D02DE00DB1F74 /* ImagesViewController.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		31E2B0021C7D058F00DB1F74 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				31E2AFFB1C7D024D00DB1F74 /* SegueIdentifiers.swift */,
+				31FB712D1C7BE57000D0E166 /* Main.storyboard */,
+				31FB71321C7BE57000D0E166 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		31E2B0031C7D062B00DB1F74 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				31FB71291C7BE57000D0E166 /* AppDelegate.swift */,
+				31E2B0041C7D063A00DB1F74 /* AppViewController.swift */,
+				31E2AFFF1C7D045200DB1F74 /* AppSetup.swift */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
 		31FB711D1C7BE57000D0E166 = {
 			isa = PBXGroup;
 			children = (
@@ -110,14 +141,10 @@
 		31FB71281C7BE57000D0E166 /* RxSwiftGram */ = {
 			isa = PBXGroup;
 			children = (
-				31FB71291C7BE57000D0E166 /* AppDelegate.swift */,
-				31FB712B1C7BE57000D0E166 /* LoginViewController.swift */,
-				31E2AFFD1C7D02DE00DB1F74 /* ImagesViewController.swift */,
-				31E2AFFF1C7D045200DB1F74 /* AppSetup.swift */,
-				31E2AFFB1C7D024D00DB1F74 /* SegueIdentifiers.swift */,
-				31FB712D1C7BE57000D0E166 /* Main.storyboard */,
+				31E2B0021C7D058F00DB1F74 /* Storyboard */,
+				31E2B0011C7D057100DB1F74 /* Views */,
+				31E2B0031C7D062B00DB1F74 /* App */,
 				31FB71301C7BE57000D0E166 /* Assets.xcassets */,
-				31FB71321C7BE57000D0E166 /* LaunchScreen.storyboard */,
 				31FB71351C7BE57000D0E166 /* Info.plist */,
 			);
 			path = RxSwiftGram;
@@ -340,6 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31E2B0051C7D063A00DB1F74 /* AppViewController.swift in Sources */,
 				31E2AFFC1C7D024E00DB1F74 /* SegueIdentifiers.swift in Sources */,
 				31E2B0001C7D045200DB1F74 /* AppSetup.swift in Sources */,
 				31FB712C1C7BE57000D0E166 /* LoginViewController.swift in Sources */,
