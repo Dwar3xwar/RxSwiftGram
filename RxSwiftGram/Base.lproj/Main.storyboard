@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Images View Controller-->
         <scene sceneID="fl5-65-mwS">
             <objects>
-                <tableViewController id="laV-0K-Nwg" sceneMemberID="viewController">
+                <tableViewController id="laV-0K-Nwg" customClass="ImagesViewController" customModule="RxSwiftGram" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="fyM-oq-fJm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

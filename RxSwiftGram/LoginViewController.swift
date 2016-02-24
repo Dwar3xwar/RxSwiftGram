@@ -31,6 +31,8 @@ class LoginViewController: UIViewController {
                 .map{String($0)}
             }
             .subscribeNext{ [unowned self] urlArray in
+                
+                print(urlArray)
                 let accessToken = urlArray?.last
                 
                 let defaults = NSUserDefaults.standardUserDefaults()
