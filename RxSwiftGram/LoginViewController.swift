@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
         let webView = WKWebView(frame: self.view.bounds)
         view.addSubview(webView)
         
-        let url = NSURL(string: "https://api.instagram.com/oauth/authorize/?client_id=\(InstagramKeys.key.rawValue)&redirect_uri=\(InstagramKeys.redirectURI.rawValue)&response_type=token")
+        let url = NSURL(string: "https://api.instagram.com/oauth/authorize/?client_id=\(InstagramKeys.key.rawValue)&scope=public_content+follower_list+relationships+likes+comments&redirect_uri=\(InstagramKeys.redirectURI.rawValue)&response_type=token")
         let request = NSURLRequest(URL: url!)
         webView.loadRequest(request)
         
