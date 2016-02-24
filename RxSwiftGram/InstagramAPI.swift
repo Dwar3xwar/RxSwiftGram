@@ -10,19 +10,6 @@ import Foundation
 import RxSwift
 import Moya
 
-public func url(route: TargetType) -> String {
-    return route.baseURL.URLByAppendingPathComponent(route.path).absoluteString
-}
-
-let endPointClosure = { (target: InstagramAPI) -> Endpoint<InstagramAPI> in
-    let endpoint: Endpoint<InstagramAPI> = Endpoint<InstagramAPI>(URL: url(target), sampleResponseClosure: {.NetworkResponse(200, target.sampleData)}, method: target.method, parameters: target.parameters)
-    
-    switch target {
-    default:
-        return endpoint.endpointByAddingHTTPHeaderFields(["access_token": AppSetup.sharedState.accessToken])
-    }
-}
-
 let requestClosure = { (endpoint: Endpoint<InstagramAPI>, done: NSURLRequest -> Void) in
     let request = endpoint.urlRequest
     InstagramOAuth.sharedProvider.signRequest(request) { request in
@@ -46,6 +33,8 @@ extension InstagramAPI: TargetType {
         switch self {
         case .UserSelf:
             return "/users/self/"
+        case .UserGet:
+            return "/users/"
         case.UserLastLiked:
             return "/users/self/media/recent/"
         default:
