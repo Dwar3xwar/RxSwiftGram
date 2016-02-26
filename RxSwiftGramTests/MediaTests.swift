@@ -53,11 +53,11 @@ class MediaTest: XCTestCase {
         
         let mediaMapper = Mapper<Media>()
         let media = mediaMapper.map(JSON)
-        
-        let userMapper = Mapper<User>()
-        let user = userMapper.map(JSON)
-        
-        XCTAssertEqual(media?.user, user)
+
+        XCTAssertEqual(media?.user?.username, "KevinS")
+        XCTAssertEqual(media?.user?.fullName, "Kevin")
+        XCTAssertEqual(media?.user?.id, "2")
+        XCTAssertEqual(media?.user?.profilePicture, "http://distillery.s3.amazonaws.com/profiles/profile_1574083_75sq_1295469061.jpg")
         
     }
     
