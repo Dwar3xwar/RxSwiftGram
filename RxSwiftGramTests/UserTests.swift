@@ -24,7 +24,7 @@ class UserTests: XCTestCase {
     func testMappedFromJSON(){
         
         let JSON: [String: AnyObject] = [
-            "data" : [
+            "user" : [
                 "id": "1574083",
                 "username": "snoopdogg",
                 "full_name": "Snoop Dogg",
@@ -39,6 +39,8 @@ class UserTests: XCTestCase {
         
         let JSONFromUser = mapper.toJSON(user)
         let userFromJSON: User! = mapper.map(JSONFromUser)
+        
+        print(user)
         
         XCTAssertNotNil(userFromJSON)
         

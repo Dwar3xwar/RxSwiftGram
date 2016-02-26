@@ -17,17 +17,17 @@ struct Media {
 
 extension Media: Mappable {
     init?(_ map: Map) {
-        
+
     }
     
     mutating func mapping(map: Map) {
         id <- map["data.id"]
         type <- (map["data.type"], setMediaType)
         
+        let userMapper = Mapper<User>()
+        let userMap: User! = userMapper.map(map.JSONDictionary as [String: AnyObject])
         
-        user = User(map["data.user"])
-        user?.mapping(map["data.user"])
-        
+        print(userMap)
         
     }
 }
