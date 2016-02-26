@@ -10,7 +10,6 @@ enum MediaType: String {
 struct Media {
     
     var id: String?
-    var link: String?
     var type: MediaType?
     var user: User?
     
@@ -23,8 +22,8 @@ extension Media: Mappable {
     
     mutating func mapping(map: Map) {
         id <- map["data.id"]
-        link <- map ["data.images.standard_resolution"]
         type <- (map["data.type"], setMediaType)
+        
         
         user = User(map["data.user"])
         user?.mapping(map["data.user"])

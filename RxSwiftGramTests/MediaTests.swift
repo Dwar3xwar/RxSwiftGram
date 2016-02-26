@@ -58,13 +58,10 @@ class MediaTest: XCTestCase {
         
         let mediaMapper = Mapper<Media>()
         let media: Media! = mediaMapper.map(JSON)
-        let mediaUser: User! = media.user!
+        print(media)
+        XCTAssertNotNil(media.user)
         
-        let userMapper = Mapper<User>()
-        let user: User! = userMapper.map(JSON)
-
-        
-        XCTAssertEqual(mediaUser, user)
+        //XCTAssertEqual(mediaUser.username, "KevinS")
         
     }
     
@@ -89,13 +86,15 @@ class MediaTest: XCTestCase {
             ]
         ]
         
-        let mapper = Mapper<Media>()
-        let media: Media! = mapper.map(JSON)
+        let mediaMapper = Mapper<Media>()
+        let media: Media! = mediaMapper.map(JSON)
+        let mediaUser: User! = media.user!
         
-        let JSONFromMedia = mapper.toJSON(media)
-        let mediaFromJSON: Media! = mapper.map(JSONFromMedia)
+        let userMapper = Mapper<User>()
+        let user: User! = userMapper.map(JSON)
         
-    
+        
+        XCTAssertEqual(mediaUser.username, "rightUsername")
 
     }
 }
