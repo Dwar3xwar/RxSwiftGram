@@ -2,12 +2,6 @@ import UIKit
 import WebKit
 import RxWebKit
 
-enum InstagramKeys: String {
-    case key = "03fe4082cb4341019b6eae54c496a26f"
-    case secret = "9c2008f39cc349179c24917b95b4a9cd"
-    case redirectURI = "https://www.bloc.io"
-}
-
 class LoginViewController: UIViewController {
 
 
@@ -20,7 +14,7 @@ class LoginViewController: UIViewController {
         let webView = WKWebView(frame: self.view.bounds)
         view.addSubview(webView)
         
-        let url = NSURL(string: "https://api.instagram.com/oauth/authorize/?client_id=\(InstagramKeys.key.rawValue)&scope=public_content+follower_list+relationships+likes+comments&redirect_uri=\(InstagramKeys.redirectURI.rawValue)&response_type=token")
+        let url = NSURL(string: "https://api.instagram.com/oauth/authorize/?client_id=\(InstagramKeys.key.rawValue)&scope=relationships+likes+comments&redirect_uri=\(InstagramKeys.redirectURI.rawValue)&response_type=token")
         let request = NSURLRequest(URL: url!)
         webView.loadRequest(request)
         

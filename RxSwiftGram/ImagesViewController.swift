@@ -19,16 +19,5 @@ class ImagesViewController: UITableViewController {
         super.viewDidLoad()
         print("images")
         
-        provider.request(.UserSelf).mapObject(User)
-            .subscribe{ event -> Void in
-                switch event {
-                case .Next(let response):
-                    print("Response:\(response)")
-                case .Error(let error):
-                    print(error)
-                default:
-                    break
-                }
-        }
     }
 }
