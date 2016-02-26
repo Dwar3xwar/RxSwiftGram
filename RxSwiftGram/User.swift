@@ -7,9 +7,15 @@ struct User {
     var username: String?
     var fullName: String?
     var profilePicture: String?
-    var bio: String?
-    var website: String?
-    
+}
+
+extension User: Equatable {}
+
+func ==(lhs: User, rhs: User) -> Bool {
+    return lhs.id == rhs.id &&
+            lhs.username == rhs.username &&
+            lhs.fullName == rhs.fullName &&
+            lhs.profilePicture == rhs.profilePicture 
 }
 
 extension User: Mappable {
@@ -22,7 +28,5 @@ extension User: Mappable {
         username <- map["data.username"]
         fullName <- map["data.full_name"]
         profilePicture <- map["data.profile_picture"]
-        bio <- map["data.bio"]
-        website <- map["data.website"]
     }
 }
