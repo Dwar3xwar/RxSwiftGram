@@ -6,10 +6,6 @@ import ObjectMapper
 
 class MediaTest: XCTestCase {
     
-    override func setUp() {
-
-    }
-    
     func testMediaIsNotNil(){
         let JSON: [String: AnyObject] = [
             "data" : [
@@ -57,43 +53,37 @@ class MediaTest: XCTestCase {
         
         let mediaMapper = Mapper<Media>()
         let media = mediaMapper.map(JSON)
-        print(media)
         
+        let userMapper = Mapper<User>()
+        let user = userMapper.map(JSON)
         
-        //XCTAssertEqual(mediaUser.username, "KevinS")
+        XCTAssertEqual(media?.user, user)
         
     }
     
-    func testMediaGetsCorrectUser(){
-        let JSON: [String: AnyObject] = [
+    func testMediaTypeIsImage(){
+        let imageJSON: [String: AnyObject] = [
             "data" : [
-                "users_in_photo" : [
-                    "user" : [
-                        "username" : "wrongUsername",
-                        "full_name" : "wrongFullname",
-                        "id" : "wrongId",
-                        "profile_picture" : "wrongProfilePicture",
-                    ]
-                ],
-                
-                "user" : [
-                    "username" : "rightUsername",
-                    "full_name" : "rightFullname",
-                    "id" : "rightId",
-                    "profile_picture" : "rightProfilePicture"
-                ]
+                "type": "image"
             ]
         ]
         
         let mediaMapper = Mapper<Media>()
-        let media: Media! = mediaMapper.map(JSON)
-
+        let imageMedia = mediaMapper.map(imageJSON)
         
-        let userMapper = Mapper<User>()
-        let user: User! = userMapper.map(JSON)
+        XCTAssertEqual(imageMedia?.type, .Image)
+    }
+    
+    func testMediaTypeIsVideo(){
+        let videoJSON: [String: AnyObject] = [
+            "data" : [
+                "type": "video"
+            ]
+        ]
         
+        let mediaMapper = Mapper<Media>()
+        let videoMedia = mediaMapper.map(videoJSON)
         
-
-
+        XCTAssertEqual(videoMedia?.type, .Video)
     }
 }

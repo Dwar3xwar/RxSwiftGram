@@ -24,9 +24,9 @@ extension User: Mappable {
     }
     
     mutating func mapping(map: Map) {
-        id <- map["user.id"]
-        username <- map["user.username"]
-        fullName <- map["user.full_name"]
-        profilePicture <- map["user.profile_picture"]
+        id <- map["data.user.id"]
+        username <- map["data.user.username"]
+        fullName <- map["data.user.full_name"]
+        profilePicture <- map["data.user.profile_picture"]
     }
 }

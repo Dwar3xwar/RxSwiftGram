@@ -24,10 +24,10 @@ extension Media: Mappable {
         id <- map["data.id"]
         type <- (map["data.type"], setMediaType)
         
-        let userMapper = Mapper<User>()
-        let userMap: User! = userMapper.map(map.JSONDictionary as [String: AnyObject])
-        
-        print(userMap)
+        // Custom Mapping To User Model
+        user = User(map["data"])
+        user?.mapping(map["data"])
+    
         
     }
 }
