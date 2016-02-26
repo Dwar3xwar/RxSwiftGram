@@ -24,14 +24,10 @@ class UserTests: XCTestCase {
     func testMappedFromJSON(){
         
         let JSON: [String: AnyObject] = [
-            "data" : [
-                "user" : [
-                    "username" : "KevinS",
-                    "full_name" : "Kevin",
-                    "id" : "2",
-                    "profile_picture" : "http://distillery.s3.amazonaws.com/profiles/profile_1574083_75sq_1295469061.jpg"
-                ]
-            ]
+            "username" : "KevinS",
+            "full_name" : "Kevin",
+            "id" : "2",
+            "profile_picture" : "http://distillery.s3.amazonaws.com/profiles/profile_1574083_75sq_1295469061.jpg"
         ]
         
         let mapper = Mapper<User>()
