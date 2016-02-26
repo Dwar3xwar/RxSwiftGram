@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '3CAF027E87588121232A8C1A'
+               BlueprintIdentifier = '37B4C26EA23A1B3C6A8AD23F'
                BlueprintName = 'RxWebKit'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'RxWebKit.framework'>

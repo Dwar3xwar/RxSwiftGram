@@ -15,9 +15,20 @@ class ImagesViewController: UITableViewController {
     
     let provider = RxMoyaProvider<InstagramAPI>(requestClosure: requestClosure)
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("images")
         
+        provider.request(.UserFeed)
+            .filterSuccessfulStatusCodes()
+            .mapJSON()
+            .subscribeNext{print($0)}
+
     }
+}
+
+extension ImagesViewController {
+
 }

@@ -19,11 +19,12 @@ let requestClosure = { (endpoint: Endpoint<InstagramAPI>, done: NSURLRequest -> 
 
 enum InstagramAPI {
     case UserSelf
+    case UserFeed
     case UserGet(userId: String)
     case UserSearch(name: String)
     case UserLastLiked
     
-    case MediaGet(mediaId: String)
+    case MediaGet(id: String)
 }
 
 extension InstagramAPI: TargetType {
@@ -33,10 +34,15 @@ extension InstagramAPI: TargetType {
         switch self {
         case .UserSelf:
             return "/users/self/"
+        case.UserFeed:
+            return "/users/self/feed"
         case .UserGet:
             return "/users/"
-        case.UserLastLiked:
+        case .UserLastLiked:
             return "/users/self/media/recent/"
+            
+        case .MediaGet(let id):
+            return "/media/\(id)"
         default:
             return ""
         }

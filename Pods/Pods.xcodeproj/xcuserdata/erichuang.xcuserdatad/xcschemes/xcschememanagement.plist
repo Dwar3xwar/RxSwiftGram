@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>NSObject+Rx.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ObjectMapper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,7 +62,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>2BBA62E4DDBE41A1B2215D57D7B2C31D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4CEAA3DC79644497FCB74DE3A9E7C1A0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>604C54063EE8A4F054D8938B10711839</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,22 +87,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>98A316CE140D7AFAC5FF65C0074F178D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A0933FC1307AD48F89C9FB7CEA3C29C5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BC6DF9DB0E57BF7815F32EAB090EA72F</key>
+		<key>B19AD7506F70C036E7339E8E23E3DF0F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DB22540DB53389DAF70906DBBBAE530F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E4B1087B5ADEDFB9D50B0A94A63E5CD9</key>
+		<key>CC4783801AAEEE6CF98259F3E4AA93C9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -98,11 +113,6 @@
 			<true/>
 		</dict>
 		<key>EBB1632A4413AC2B90C500B923E18F0D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FC787058D8182516AA6118F0576D04D6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
