@@ -25,8 +25,8 @@ extension Media: Mappable {
         type <- (map["data.type"], setMediaType)
         
         // Custom Mapping To User Model
-        user = User(map["data"])
-        user?.mapping(map["data"])
+        user = User(map.vanillaUserDictionary())
+        user?.mapping(map.vanillaUserDictionary())
     
         
     }
@@ -45,6 +45,18 @@ let setMediaType = TransformOf<MediaType, String>(fromJSON: { type in
 }
 
 
+
+private extension Map {
+    /// Raw User Dictionary From Instagram API For Media
+    func vanillaUserDictionary() -> Map {
+        
+        guard let unwrappedUserDictionary = self.JSONDictionary["data"]!["user"] as? [String: String] else {
+            return self
+        }
+        
+        return Map(mappingType: .FromJSON, JSONDictionary: unwrappedUserDictionary)
+    }
+}
 
 
 

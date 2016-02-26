@@ -9,7 +9,13 @@ class MediaTest: XCTestCase {
     func testMediaIsNotNil(){
         let JSON: [String: AnyObject] = [
             "data" : [
-                "id": "3"
+                "id": "3",
+                "user" : [
+                    "username" : "KevinS",
+                    "full_name" : "Kevin",
+                    "id" : "2",
+                    "profile_picture" : "http://distillery.s3.amazonaws.com/profiles/profile_1574083_75sq_1295469061.jpg"
+                ]
             ]
         ]
         
@@ -28,7 +34,13 @@ class MediaTest: XCTestCase {
         let JSON: [String: AnyObject] = [
             "data" : [
                 "id": "3",
-                "type": "image"
+                "type": "image",
+                "user" : [
+                    "username" : "KevinS",
+                    "full_name" : "Kevin",
+                    "id" : "2",
+                    "profile_picture" : "http://distillery.s3.amazonaws.com/profiles/profile_1574083_75sq_1295469061.jpg"
+                ]
             ]
         ]
         

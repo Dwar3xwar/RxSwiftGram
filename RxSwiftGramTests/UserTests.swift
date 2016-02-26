@@ -13,15 +13,9 @@ import ObjectMapper
 @testable import RxSwiftGram
 
 class UserTests: XCTestCase {
-    override func setUp() {
-        
-    }
+
     
-    override func tearDown() {
-        
-    }
-    
-    func testMappedFromJSON(){
+    func testBasicMappingFromJSON(){
         
         let JSON: [String: AnyObject] = [
             "username" : "KevinS",
