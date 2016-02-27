@@ -8,16 +8,15 @@ class MediaTest: XCTestCase {
     
     func testMediaIsNotNil(){
         let JSON: [String: AnyObject] = [
-            "data" : [
-                "id": "3",
-                "user" : [
-                    "username" : "KevinS",
-                    "full_name" : "Kevin",
-                    "id" : "2",
-                    "profile_picture" : "http://distillery.s3.amazonaws.com/profiles/profile_1574083_75sq_1295469061.jpg"
-                ]
+            "id": "3",
+            "user" : [
+                "username" : "KevinS",
+                "full_name" : "Kevin",
+                "id" : "2",
+                "profile_picture" : "http://distillery.s3.amazonaws.com/profiles/profile_1574083_75sq_1295469061.jpg"
             ]
         ]
+        
         
         let mapper = Mapper<Media>()
         let media: Media! = mapper.map(JSON)
@@ -32,17 +31,16 @@ class MediaTest: XCTestCase {
     
     func testBasicMappingFromJSON(){
         let JSON: [String: AnyObject] = [
-            "data" : [
-                "id": "3",
-                "type": "image",
-                "user" : [
-                    "username" : "KevinS",
-                    "full_name" : "Kevin",
-                    "id" : "2",
-                    "profile_picture" : "http://distillery.s3.amazonaws.com/profiles/profile_1574083_75sq_1295469061.jpg"
-                ]
+            "id": "3",
+            "type": "image",
+            "user" : [
+                "username" : "KevinS",
+                "full_name" : "Kevin",
+                "id" : "2",
+                "profile_picture" : "http://distillery.s3.amazonaws.com/profiles/profile_1574083_75sq_1295469061.jpg"
             ]
         ]
+    
         
         let mapper = Mapper<Media>()
         let media: Media! = mapper.map(JSON)
@@ -53,15 +51,14 @@ class MediaTest: XCTestCase {
     
     func testMediaMapsUserJSON(){
         let JSON: [String: AnyObject] = [
-            "data" : [
-                "user" : [
-                    "username" : "KevinS",
-                    "full_name" : "Kevin",
-                    "id" : "2",
-                    "profile_picture" : "http://distillery.s3.amazonaws.com/profiles/profile_1574083_75sq_1295469061.jpg"
-                ]
+            "user" : [
+                "username" : "KevinS",
+                "full_name" : "Kevin",
+                "id" : "2",
+                "profile_picture" : "http://distillery.s3.amazonaws.com/profiles/profile_1574083_75sq_1295469061.jpg"
             ]
         ]
+
         
         let mediaMapper = Mapper<Media>()
         let media = mediaMapper.map(JSON)
@@ -75,9 +72,7 @@ class MediaTest: XCTestCase {
     
     func testMediaTypeIsImage(){
         let imageJSON: [String: AnyObject] = [
-            "data" : [
                 "type": "image"
-            ]
         ]
         
         let mediaMapper = Mapper<Media>()
@@ -88,9 +83,7 @@ class MediaTest: XCTestCase {
     
     func testMediaTypeIsVideo(){
         let videoJSON: [String: AnyObject] = [
-            "data" : [
                 "type": "video"
-            ]
         ]
         
         let mediaMapper = Mapper<Media>()

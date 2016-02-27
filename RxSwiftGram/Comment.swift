@@ -17,9 +17,9 @@ extension Comment: Mappable {
     }
     
     mutating func mapping(map: Map) {
-        id <- map["data.id"]
-        text <- map["data.text"]
-        createdTime <- map["data.created_time"]
+        id <- map["id"]
+        text <- map["text"]
+        createdTime <- map["created_time"]
         
         from = User(map.vanillaUserDictionary())
         from?.mapping(map.vanillaUserDictionary())
@@ -30,7 +30,7 @@ private extension Map {
     /// Raw User Dictionary From Instagram API for Comment 
     func vanillaUserDictionary() -> Map {
         
-        guard let unwrappedUserDictionary = self.JSONDictionary["data"]!["from"] as? [String: String] else {
+        guard let unwrappedUserDictionary = self.JSONDictionary["from"] as? [String: String] else {
             return self
         }
         

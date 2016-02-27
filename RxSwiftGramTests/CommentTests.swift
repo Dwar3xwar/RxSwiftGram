@@ -8,11 +8,9 @@ class CommentTests: XCTestCase {
     
     func testBasicMappingFromJSON(){
         let JSON: [String: AnyObject] = [
-            "data" : [
-                "id": "3",
-                "text": "BURN ALL THE BOOKS",
-                "created_time" : "2312534",
-            ]
+            "id": "3",
+            "text": "BURN ALL THE BOOKS",
+            "created_time" : "2312534",
         ]
         
         let mapper = Mapper<Comment>()
@@ -25,15 +23,14 @@ class CommentTests: XCTestCase {
     
     func testCommentMapsUserJSON(){
         let JSON: [String: AnyObject] = [
-            "data" : [
-                "from" : [
-                    "username" : "KevinS",
-                    "full_name" : "Kevin",
-                    "id" : "2",
-                    "profile_picture" : "http://distillery.s3.amazonaws.com/profiles/profile_1574083_75sq_1295469061.jpg"
-                ]
+            "from" : [
+                "username" : "KevinS",
+                "full_name" : "Kevin",
+                "id" : "2",
+                "profile_picture" : "http://distillery.s3.amazonaws.com/profiles/profile_1574083_75sq_1295469061.jpg"
             ]
         ]
+        
         
         let mapper = Mapper<Comment>()
         let comment: Comment! = mapper.map(JSON)

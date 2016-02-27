@@ -21,25 +21,16 @@ class ImagesViewModel: NSObject {
     
     private func setup() {
         
-        provider.request(.UserFeed)
-            .mapJSON()
-            .map { return $0["data"] as! [AnyObject] } // Get Data Object of Instagram Response
-            .map { instagramPost in
-                
-        }
-
-
-
         instagramPosts
             .asObservable()
             .subscribeNext{print($0)}
             .addDisposableTo(rx_disposeBag)
     }
     
-    private func requestUserFeed() -> Observable<AnyObject> {
+    private func requestUserFeed() -> Observable<[Media]> {
         return provider.request(.UserFeed)
                 .filterSuccessfulStatusCodes()
-                .mapJSON()
+                .mapInstagramDataArray(Media)
     }
     
 

@@ -15,17 +15,9 @@ import ObjectMapper
 class ImagesViewController: UITableViewController {
     
     let provider = RxMoyaProvider<InstagramAPI>(requestClosure: requestClosure)
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("images")
-        
-        provider.request(.UserFeed)
-            .mapInstagramDataArray(Media)
-            .subscribeNext{print($0)}
-
 
     }
     

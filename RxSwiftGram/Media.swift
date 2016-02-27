@@ -21,8 +21,8 @@ extension Media: Mappable {
     }
     
     mutating func mapping(map: Map) {
-        id <- map["data.id"]
-        type <- (map["data.type"], setMediaType)
+        id <- map["id"]
+        type <- (map["type"], setMediaType)
         
         // Custom Mapping To User Model
         user = User(map.vanillaUserDictionary())
@@ -50,7 +50,7 @@ private extension Map {
     /// Raw User Dictionary From Instagram API For Media
     func vanillaUserDictionary() -> Map {
         
-        guard let unwrappedUserDictionary = self.JSONDictionary["data"]?["user"] as? [String: String] else {
+        guard let unwrappedUserDictionary = self.JSONDictionary["user"] as? [String: String] else {
             return self
         }
         
