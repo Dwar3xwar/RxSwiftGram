@@ -26,18 +26,24 @@ class ImagesViewController: UITableViewController {
     let provider = RxMoyaProvider<InstagramAPI>(requestClosure: requestClosure)
     
     lazy var viewModel: ImagesViewModel = {
-        return ImagesViewModel(updateTable: self.updateTable)
+        return ImagesViewModel()
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
+        // Reload table everytime there is new content
+        viewModel
+            .updatedContent
+            .doOn() { [weak self] _ in
+                guard let me = self else { return }
+                me.tableView.reloadData()
+            }
+            .observeOn(SerialDispatchQueueScheduler(globalConcurrentQueueQOS: .Background))
+            .observeOn(MainScheduler.instance)
+
     }
     
-    func updateTable() {
-        self.tableView.reloadData()
-    }
 }
 
 extension ImagesViewController {

@@ -8,15 +8,21 @@ class ImagesViewModel: NSObject {
     let provider = RxMoyaProvider<InstagramAPI>(requestClosure: requestClosure)
     
     private var instagramPosts = Variable(Array<Media>())
-    
-    var updateTable: () -> Void
+
     
     var numberOfInstagramPosts: Int {
         return instagramPosts.value.count
     }
     
-    init(updateTable: () -> Void){
-        self.updateTable = updateTable
+    var updatedContent: Observable<Void> {
+        return instagramPosts
+                    .asObservable()
+                    .distinctUntilChanged{ $0 == $1 }
+                    .map{ $0.count > 0 }
+        
+    }
+    
+    override init(){
         super.init()
         setup()
     }
@@ -27,16 +33,7 @@ class ImagesViewModel: NSObject {
             .takeUntil(rx_deallocated)
             .bindTo(instagramPosts)
             .addDisposableTo(rx_disposeBag)
-        
-        instagramPosts
-            .asObservable()
-            .distinctUntilChanged { lhs, rhs in
-                return lhs == rhs
-            }
-            .subscribeNext{ [weak self] _ in
-                self?.updateTable()
-            }
-            .addDisposableTo(rx_disposeBag)
+
     }
     
     private func requestUserFeed() -> Observable<[Media]> {
