@@ -44,8 +44,6 @@ extension Media: Mappable {
         // Custom Mapping To User Model
         user = User(map.vanillaUserDictionary())
         user?.mapping(map.vanillaUserDictionary())
-    
-        
     }
 }
 
