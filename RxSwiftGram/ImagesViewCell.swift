@@ -12,6 +12,7 @@ import RxSwift
 
 class ImagesViewCell: UITableViewCell {
     typealias DownloadImageClosure = (url: NSURL?, imageView: UIImageView) -> ()
+    typealias CancelDownloadImageClosure = (imageView: UIImageView) -> ()
     
     @IBOutlet weak var usernameOutlet: UILabel!
     

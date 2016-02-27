@@ -23,6 +23,8 @@ class ImagesViewController: UITableViewController {
         }
     }
     
+
+    
     let provider = RxMoyaProvider<InstagramAPI>(requestClosure: requestClosure)
     
     lazy var viewModel: ImagesViewModel = {
@@ -39,9 +41,10 @@ class ImagesViewController: UITableViewController {
                 guard let me = self else { return }
                 me.tableView.reloadData()
             }
-            .observeOn(SerialDispatchQueueScheduler(globalConcurrentQueueQOS: .Background))
             .observeOn(MainScheduler.instance)
-
+            .subscribeNext { _ in
+                print("reloading")
+            }.addDisposableTo(rx_disposeBag)
     }
     
 }

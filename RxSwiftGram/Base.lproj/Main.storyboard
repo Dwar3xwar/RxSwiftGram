@@ -127,47 +127,55 @@
                     </tabBar>
                     <connections>
                         <segue destination="laV-0K-Nwg" kind="relationship" relationship="viewControllers" id="iwk-pe-dl5"/>
-                        <segue destination="J2V-Di-iIM" kind="relationship" relationship="viewControllers" id="guI-bf-ZO3"/>
+                        <segue destination="cSy-WO-yDs" kind="relationship" relationship="viewControllers" id="P6A-lY-VuS"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wim-dg-uPq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1568" y="-351"/>
         </scene>
-        <!--Explore View Controller-->
-        <scene sceneID="RGz-8L-uT8">
+        <!--Item-->
+        <scene sceneID="DK1-cm-Mcz">
             <objects>
-                <collectionViewController id="J2V-Di-iIM" customClass="ExploreViewController" customModule="RxSwiftGram" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="5Y3-4a-zuB">
+                <collectionViewController id="cSy-WO-yDs" customClass="ExploreViewController" customModule="RxSwiftGram" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="mg6-WA-ial">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mYf-kZ-ku3">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Aga-rX-DvZ">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="jRT-4U-ta8">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="exploreCell" id="mF3-Qx-dKR" customClass="ExploreViewCell" customModule="RxSwiftGram" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5fx-ON-CR2">
+                                            <rect key="frame" x="-82" y="-39" width="240" height="128"/>
+                                        </imageView>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <outlet property="imageView" destination="5fx-ON-CR2" id="uL1-h8-6JD"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
-                            <outlet property="dataSource" destination="J2V-Di-iIM" id="6vd-kM-33H"/>
-                            <outlet property="delegate" destination="J2V-Di-iIM" id="Q6b-fn-Dxi"/>
+                            <outlet property="dataSource" destination="cSy-WO-yDs" id="vk4-8x-35X"/>
+                            <outlet property="delegate" destination="cSy-WO-yDs" id="wpq-Fm-iFH"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" systemItem="featured" id="GuZ-dN-Z7Z"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="MQS-v6-PNd"/>
                 </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DH4-Dx-Em2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tpo-Yy-pgW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1418" y="584"/>
+            <point key="canvasLocation" x="1268" y="381"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
