@@ -35,7 +35,6 @@ class ImagesViewModel: NSObject {
             }
             .subscribeNext{ [weak self] _ in
                 self?.updateTable()
-                print("updating")
             }
             .addDisposableTo(rx_disposeBag)
     }

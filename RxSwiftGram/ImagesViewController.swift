@@ -32,7 +32,9 @@ class ImagesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        provider.request(.UserSelf)
+            .mapInstagramDataObject(User)
+            .subscribeNext{print($0)}
         
     }
     
