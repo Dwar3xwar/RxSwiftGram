@@ -21,7 +21,7 @@
 		31E44FAA1C80DF9900116F11 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E44FA91C80DF9900116F11 /* UserTests.swift */; };
 		31E44FAC1C80E2FE00116F11 /* MediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E44FAB1C80E2FE00116F11 /* MediaTests.swift */; };
 		31E44FAE1C81012500116F11 /* CommentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E44FAD1C81012500116F11 /* CommentTests.swift */; };
-		31E44FB21C812D7500116F11 /* Response+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E44FB11C812D7500116F11 /* Response+Extensions.swift */; };
+		31E44FB21C812D7500116F11 /* Moya-ObjectMapper+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E44FB11C812D7500116F11 /* Moya-ObjectMapper+Extensions.swift */; };
 		31E44FB41C813A4800116F11 /* ImagesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E44FB31C813A4800116F11 /* ImagesViewCell.swift */; };
 		31E44FB61C813B5200116F11 /* MediaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E44FB51C813B5200116F11 /* MediaViewModel.swift */; };
 		31FB712A1C7BE57000D0E166 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB71291C7BE57000D0E166 /* AppDelegate.swift */; };
@@ -65,7 +65,7 @@
 		31E44FA91C80DF9900116F11 /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		31E44FAB1C80E2FE00116F11 /* MediaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaTests.swift; sourceTree = "<group>"; };
 		31E44FAD1C81012500116F11 /* CommentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTests.swift; sourceTree = "<group>"; };
-		31E44FB11C812D7500116F11 /* Response+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Response+Extensions.swift"; sourceTree = "<group>"; };
+		31E44FB11C812D7500116F11 /* Moya-ObjectMapper+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Moya-ObjectMapper+Extensions.swift"; sourceTree = "<group>"; };
 		31E44FB31C813A4800116F11 /* ImagesViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesViewCell.swift; sourceTree = "<group>"; };
 		31E44FB51C813B5200116F11 /* MediaViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaViewModel.swift; sourceTree = "<group>"; };
 		31FB71261C7BE57000D0E166 /* RxSwiftGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +122,14 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		3126DE751C8220F7001774F7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				31E44FB11C812D7500116F11 /* Moya-ObjectMapper+Extensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		31B23C381C7D0B61004DB449 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,7 +146,6 @@
 				31E2AFFD1C7D02DE00DB1F74 /* ImagesViewController.swift */,
 				31E44FB31C813A4800116F11 /* ImagesViewCell.swift */,
 				3133A7801C80C082001F0296 /* ImagesViewModel.swift */,
-				31E44FB11C812D7500116F11 /* Response+Extensions.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -195,6 +202,7 @@
 				31E2B0031C7D062B00DB1F74 /* App */,
 				31B23C381C7D0B61004DB449 /* Network */,
 				31FB71351C7BE57000D0E166 /* Info.plist */,
+				3126DE751C8220F7001774F7 /* Extensions */,
 				31FB71301C7BE57000D0E166 /* Assets.xcassets */,
 			);
 			path = RxSwiftGram;
@@ -421,7 +429,7 @@
 			files = (
 				31E2B0051C7D063A00DB1F74 /* AppViewController.swift in Sources */,
 				31E2AFFC1C7D024E00DB1F74 /* SegueIdentifiers.swift in Sources */,
-				31E44FB21C812D7500116F11 /* Response+Extensions.swift in Sources */,
+				31E44FB21C812D7500116F11 /* Moya-ObjectMapper+Extensions.swift in Sources */,
 				31E2B0001C7D045200DB1F74 /* AppSetup.swift in Sources */,
 				31FB712C1C7BE57000D0E166 /* LoginViewController.swift in Sources */,
 				31E2AFFE1C7D02DE00DB1F74 /* ImagesViewController.swift in Sources */,

@@ -25,6 +25,7 @@ enum InstagramAPI {
     case UserLastLiked
     
     case MediaGet(id: String)
+    case MediaExplore
 }
 
 extension InstagramAPI: TargetType {
@@ -43,6 +44,8 @@ extension InstagramAPI: TargetType {
             
         case .MediaGet(let id):
             return "/media/\(id)"
+        case .MediaExplore:
+            return "/media/popular"
         default:
             return ""
         }
