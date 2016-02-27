@@ -3,31 +3,37 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Images View Controller-->
         <scene sceneID="fl5-65-mwS">
             <objects>
                 <tableViewController id="laV-0K-Nwg" customClass="ImagesViewController" customModule="RxSwiftGram" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="fyM-oq-fJm">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="193" sectionHeaderHeight="28" sectionFooterHeight="28" id="fyM-oq-fJm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="imagesViewCell" id="WzD-ey-j2n" customClass="ImagesViewCell" customModule="RxSwiftGram" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="imagesViewCell" rowHeight="193" id="WzD-ey-j2n" customClass="ImagesViewCell" customModule="RxSwiftGram" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="193"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WzD-ey-j2n" id="9dF-d5-4nq">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="192"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="usernameOutlet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZ9-i3-yU3">
-                                            <rect key="frame" x="8" y="11" width="42" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="usernameOutlet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZ9-i3-yU3">
+                                            <rect key="frame" x="8" y="11" width="584" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="IZ9-i3-yU3" firstAttribute="leading" secondItem="9dF-d5-4nq" secondAttribute="leadingMargin" id="5MO-bn-rQb"/>
+                                        <constraint firstItem="IZ9-i3-yU3" firstAttribute="centerY" secondItem="9dF-d5-4nq" secondAttribute="centerY" id="CHP-wX-Nwd"/>
+                                        <constraint firstItem="IZ9-i3-yU3" firstAttribute="centerX" secondItem="9dF-d5-4nq" secondAttribute="centerX" id="hb3-Tx-AOu"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="usernameOutlet" destination="IZ9-i3-yU3" id="yyM-rA-zuh"/>

@@ -9,25 +9,34 @@ class ImagesViewModel: NSObject {
     
     private var instagramPosts = Variable(Array<Media>())
     
+    var updateTable: () -> Void
+    
     var numberOfInstagramPosts: Int {
         return instagramPosts.value.count
     }
     
-    override init(){
+    init(updateTable: () -> Void){
+        self.updateTable = updateTable
         super.init()
-        
         setup()
     }
     
     private func setup() {
         
         requestUserFeed()
+            .takeUntil(rx_deallocated)
             .bindTo(instagramPosts)
             .addDisposableTo(rx_disposeBag)
         
         instagramPosts
             .asObservable()
-            .subscribeNext{print($0)}
+            .distinctUntilChanged { lhs, rhs in
+                return lhs == rhs
+            }
+            .subscribeNext{ [weak self] _ in
+                self?.updateTable()
+                print("updating")
+            }
             .addDisposableTo(rx_disposeBag)
     }
     
@@ -35,8 +44,14 @@ class ImagesViewModel: NSObject {
         return provider.request(.UserFeed)
                 .filterSuccessfulStatusCodes()
                 .mapInstagramDataArray(Media)
+                .catchErrorJustReturn([])
     }
     
+    // Mark: Public Methods
+    
+    func mediaViewModelAtIndexPath(indexPath: NSIndexPath) -> MediaViewModel {
+        return instagramPosts.value[indexPath.row].viewModel
+    }
 
 
     

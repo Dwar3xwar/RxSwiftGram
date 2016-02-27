@@ -13,6 +13,15 @@ struct Media {
     var type: MediaType?
     var user: User?
     
+    lazy var viewModel: MediaViewModel = {
+        return MediaViewModel(media: self)
+    }()
+}
+
+extension Media: Equatable {}
+
+func ==(lhs: Media, rhs: Media) -> Bool {
+    return lhs.id == rhs.id 
 }
 
 extension Media: Mappable {

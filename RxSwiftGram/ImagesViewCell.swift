@@ -8,13 +8,25 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
 class ImagesViewCell: UITableViewCell {
     
     @IBOutlet weak var usernameOutlet: UILabel!
     
+    var viewModel = PublishSubject<MediaViewModel>()
+    func setViewModel(newViewModel: MediaViewModel) {
+        self.viewModel.onNext(newViewModel)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        setup()
+    }
+    
+    private func setup() {
+        viewModel.map { $0.user?.username ?? "LOL NO NAME" }
+            .bindTo(usernameOutlet.rx_text)
+            .addDisposableTo(rx_disposeBag)
     }
 }

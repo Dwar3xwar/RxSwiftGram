@@ -17,12 +17,18 @@ class ImagesViewController: UITableViewController {
     let provider = RxMoyaProvider<InstagramAPI>(requestClosure: requestClosure)
     
     lazy var viewModel: ImagesViewModel = {
-        return ImagesViewModel()
+        return ImagesViewModel(updateTable: self.updateTable)
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
+        
+    }
+    
+    func updateTable() {
+        self.tableView.reloadData()
     }
 }
 
@@ -32,6 +38,18 @@ extension ImagesViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("imagesViewCell", forIndexPath: indexPath)
         
+        if let imagesCell = cell as? ImagesViewCell {
+            imagesCell.setViewModel(viewModel.mediaViewModelAtIndexPath(indexPath))
+        }
+    
+        return cell
+    }
+}
+
+extension ImagesViewController {
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 100
     }
 }
