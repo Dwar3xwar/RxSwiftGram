@@ -14,9 +14,17 @@ class MediaViewModel {
     var type: MediaType?
     var user: User?
     
+    var standardResolutionURL: NSURL?
+    var lowResolutionURL: NSURL?
+    var thumbnailURL: NSURL?
+    
     init(media: Media) {
         id = media.id
         type = media.type
         user = media.user
+        
+        standardResolutionURL = media.standardResolutionURL
+        lowResolutionURL = media.lowResolutionURL
+        thumbnailURL = media.thumbnailURL
     }
 }

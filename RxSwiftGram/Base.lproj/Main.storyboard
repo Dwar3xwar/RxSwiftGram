@@ -22,23 +22,40 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="192"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fgB-8o-pEu">
-                                            <rect key="frame" x="148" y="0.0" width="240" height="128"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="usernameOutlet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZ9-i3-yU3">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="usernameOutlet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZ9-i3-yU3">
                                             <rect key="frame" x="8" y="155" width="584" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fgB-8o-pEu">
+                                            <rect key="frame" x="108" y="28" width="384" height="136"/>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="IZ9-i3-yU3" firstAttribute="top" secondItem="fgB-8o-pEu" secondAttribute="bottom" constant="8" symbolic="YES" id="0wJ-k8-ZgU"/>
                                         <constraint firstItem="IZ9-i3-yU3" firstAttribute="leading" secondItem="9dF-d5-4nq" secondAttribute="leadingMargin" id="5MO-bn-rQb"/>
                                         <constraint firstItem="IZ9-i3-yU3" firstAttribute="centerY" secondItem="9dF-d5-4nq" secondAttribute="centerY" id="CHP-wX-Nwd"/>
+                                        <constraint firstItem="IZ9-i3-yU3" firstAttribute="top" secondItem="9dF-d5-4nq" secondAttribute="topMargin" constant="147" id="J3Z-sl-ArN"/>
+                                        <constraint firstItem="fgB-8o-pEu" firstAttribute="centerY" secondItem="9dF-d5-4nq" secondAttribute="centerY" id="LoB-gd-Mq6"/>
+                                        <constraint firstItem="IZ9-i3-yU3" firstAttribute="centerX" secondItem="9dF-d5-4nq" secondAttribute="centerX" id="Lur-Dr-zy8"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="IZ9-i3-yU3" secondAttribute="leading" id="NOq-SJ-5A7"/>
+                                        <constraint firstItem="fgB-8o-pEu" firstAttribute="top" secondItem="9dF-d5-4nq" secondAttribute="topMargin" constant="20" id="QFI-GK-GtN"/>
+                                        <constraint firstItem="fgB-8o-pEu" firstAttribute="leading" secondItem="9dF-d5-4nq" secondAttribute="leadingMargin" constant="100" id="bA6-eC-eXW"/>
                                         <constraint firstItem="IZ9-i3-yU3" firstAttribute="centerX" secondItem="9dF-d5-4nq" secondAttribute="centerX" id="hb3-Tx-AOu"/>
+                                        <constraint firstItem="fgB-8o-pEu" firstAttribute="centerX" secondItem="9dF-d5-4nq" secondAttribute="centerX" id="zbH-iH-zYP"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="0wJ-k8-ZgU"/>
+                                            <exclude reference="5MO-bn-rQb"/>
+                                            <exclude reference="CHP-wX-Nwd"/>
+                                            <exclude reference="hb3-Tx-AOu"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="mediaImageOutlet" destination="fgB-8o-pEu" id="zGB-gP-NuB"/>
                                     <outlet property="usernameOutlet" destination="IZ9-i3-yU3" id="yyM-rA-zuh"/>
                                 </connections>
                             </tableViewCell>

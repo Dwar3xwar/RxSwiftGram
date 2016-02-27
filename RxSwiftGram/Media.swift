@@ -12,7 +12,10 @@ struct Media {
     var id: String?
     var type: MediaType?
     var user: User?
-    var standardResolutionURL: String?
+    
+    var standardResolutionURL: NSURL?
+    var thumbnailURL: NSURL?
+    var lowResolutionURL: NSURL?
     
     lazy var viewModel: MediaViewModel = {
         return MediaViewModel(media: self)
@@ -33,7 +36,10 @@ extension Media: Mappable {
     mutating func mapping(map: Map) {
         id <- map["id"]
         type <- (map["type"], setMediaType)
-        standardResolutionURL <- map["images.standard_resolution"]
+        
+        standardResolutionURL <- (map["images.standard_resolution.url"], transformURLString)
+        thumbnailURL <- (map["images.thumbnail.url"], transformURLString)
+        lowResolutionURL <- (map["images.low_resolution.url"], transformURLString)
         
         // Custom Mapping To User Model
         user = User(map.vanillaUserDictionary())
@@ -41,6 +47,15 @@ extension Media: Mappable {
     
         
     }
+}
+
+/// Get NSURL from Images String
+let transformURLString = TransformOf<NSURL, String>(fromJSON: { string in
+    guard let urlString = string else { return nil }
+    return NSURL(string:urlString)
+})
+    { url in
+    return url?.absoluteString
 }
 
 /// Get Media Type from string
