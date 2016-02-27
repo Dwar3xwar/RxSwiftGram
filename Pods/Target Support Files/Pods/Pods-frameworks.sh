@@ -94,6 +94,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/RxCocoa.framework"
   install_framework "Pods/RxSwift.framework"
   install_framework "Pods/RxWebKit.framework"
+  install_framework "Pods/SDWebImage.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/Alamofire.framework"
@@ -106,4 +107,5 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/RxCocoa.framework"
   install_framework "Pods/RxSwift.framework"
   install_framework "Pods/RxWebKit.framework"
+  install_framework "Pods/SDWebImage.framework"
 fi

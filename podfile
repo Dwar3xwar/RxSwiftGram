@@ -8,3 +8,5 @@ pod 'RxBlocking', '~> 2.0'
 pod 'Moya/RxSwift'
 pod 'RxWebKit'
 pod 'NSObject+Rx'
+
+pod 'SDWebImage', '~>3.7'

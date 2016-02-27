@@ -12,6 +12,7 @@ struct Media {
     var id: String?
     var type: MediaType?
     var user: User?
+    var standardResolutionURL: String?
     
     lazy var viewModel: MediaViewModel = {
         return MediaViewModel(media: self)
@@ -32,6 +33,7 @@ extension Media: Mappable {
     mutating func mapping(map: Map) {
         id <- map["id"]
         type <- (map["type"], setMediaType)
+        standardResolutionURL <- map["images.standard_resolution"]
         
         // Custom Mapping To User Model
         user = User(map.vanillaUserDictionary())
