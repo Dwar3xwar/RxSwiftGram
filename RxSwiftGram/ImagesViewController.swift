@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import RxSwift
 import Moya
+import ObjectMapper
 
 class ImagesViewController: UITableViewController {
     
@@ -22,11 +23,13 @@ class ImagesViewController: UITableViewController {
         print("images")
         
         provider.request(.UserFeed)
-            .filterSuccessfulStatusCodes()
-            .mapJSON()
+            .mapInstagramDataArray(Media)
             .subscribeNext{print($0)}
 
+
     }
+    
+    
 }
 
 extension ImagesViewController {

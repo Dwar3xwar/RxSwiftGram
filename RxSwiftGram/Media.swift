@@ -50,7 +50,7 @@ private extension Map {
     /// Raw User Dictionary From Instagram API For Media
     func vanillaUserDictionary() -> Map {
         
-        guard let unwrappedUserDictionary = self.JSONDictionary["data"]!["user"] as? [String: String] else {
+        guard let unwrappedUserDictionary = self.JSONDictionary["data"]?["user"] as? [String: String] else {
             return self
         }
         
