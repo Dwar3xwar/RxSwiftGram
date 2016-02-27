@@ -4,6 +4,7 @@ import RxSwift
 import Moya
 import ObjectMapper
 import SDWebImage
+import FMMosaicLayout
 
 class ExploreViewController: UICollectionViewController {
     
@@ -23,7 +24,11 @@ class ExploreViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let mosiacLayout = FMMosaicLayout()
+        collectionView?.collectionViewLayout = mosiacLayout
+        collectionView?.backgroundColor = .whiteColor()
+        
         // Reload table everytime there is new content
         viewModel
             .updatedContent
@@ -53,6 +58,12 @@ extension ExploreViewController {
         }
         
         return cell
+    }
+}
+
+extension ExploreViewController {
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        print(indexPath.item)
     }
 }
 

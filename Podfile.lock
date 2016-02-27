@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (3.2.0)
+  - FMMosaicLayout (0.1.4)
   - Moya (6.1.3):
     - Moya/Core (= 6.1.3)
   - Moya-ObjectMapper/Core (1.1.5):
@@ -32,6 +33,7 @@ PODS:
   - SDWebImage/Core (3.7.5)
 
 DEPENDENCIES:
+  - FMMosaicLayout
   - Moya
   - Moya-ObjectMapper/RxSwift (~> 1.1.2)
   - Moya/RxSwift
@@ -44,6 +46,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
+  FMMosaicLayout: c0febf6876c987c425d7e2176d034fa7a2c98cb5
   Moya: 26b290a8d675c167ea6229ba08e07dce562265a5
   Moya-ObjectMapper: 7522e5f2afaa515122fbc2fc61fddba59f01b26a
   NSObject+Rx: 5d032a7f161602dec6b82dcf12731e91ce15b8da

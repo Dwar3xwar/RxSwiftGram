@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FMMosaicLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Moya-ObjectMapper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,12 +72,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4833B89DECA46406E7FD883625D6F922</key>
+		<key>1CC5E6202FBEC7F87AF17F52F9FA9497</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>487ADCAE3C8791FDC07FB00130EAEBE4</key>
+		<key>40A05DA31BD1D280B5B2BFBBFCC5A96E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>44008E641CFD6F605566C4E2F6E3F737</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,22 +92,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>4FE77932A1E3F8986AD317B9DC25B189</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>54135E75304D090EB1D74818E6FBC200</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>604C54063EE8A4F054D8938B10711839</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6D49D9498FB376170216DF237E48DCB1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7009B55E047807E484354713F9104DC6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8390C85D74BAD6043BE402BB3E3A42AD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -118,11 +133,6 @@
 			<true/>
 		</dict>
 		<key>EBB1632A4413AC2B90C500B923E18F0D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FB76FD1F34DC57024068250E91EC0021</key>
 		<dict>
 			<key>primary</key>
 			<true/>
