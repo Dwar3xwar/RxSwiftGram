@@ -23,6 +23,7 @@
 		31E44FAE1C81012500116F11 /* CommentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E44FAD1C81012500116F11 /* CommentTests.swift */; };
 		31E44FB21C812D7500116F11 /* Response+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E44FB11C812D7500116F11 /* Response+Extensions.swift */; };
 		31E44FB41C813A4800116F11 /* ImagesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E44FB31C813A4800116F11 /* ImagesViewCell.swift */; };
+		31E44FB61C813B5200116F11 /* MediaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E44FB51C813B5200116F11 /* MediaViewModel.swift */; };
 		31FB712A1C7BE57000D0E166 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB71291C7BE57000D0E166 /* AppDelegate.swift */; };
 		31FB712C1C7BE57000D0E166 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB712B1C7BE57000D0E166 /* LoginViewController.swift */; };
 		31FB712F1C7BE57000D0E166 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31FB712D1C7BE57000D0E166 /* Main.storyboard */; };
@@ -66,6 +67,7 @@
 		31E44FAD1C81012500116F11 /* CommentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTests.swift; sourceTree = "<group>"; };
 		31E44FB11C812D7500116F11 /* Response+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Response+Extensions.swift"; sourceTree = "<group>"; };
 		31E44FB31C813A4800116F11 /* ImagesViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesViewCell.swift; sourceTree = "<group>"; };
+		31E44FB51C813B5200116F11 /* MediaViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaViewModel.swift; sourceTree = "<group>"; };
 		31FB71261C7BE57000D0E166 /* RxSwiftGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31FB71291C7BE57000D0E166 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31FB712B1C7BE57000D0E166 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			children = (
 				3104FDD41C7E439B00B54828 /* User.swift */,
 				3133A7821C80C262001F0296 /* Media.swift */,
+				31E44FB51C813B5200116F11 /* MediaViewModel.swift */,
 				3133A7841C80C2DC001F0296 /* Comment.swift */,
 			);
 			name = Models;
@@ -427,6 +430,7 @@
 				3133A77F1C80BEB6001F0296 /* InstagramKeys.swift in Sources */,
 				31B23C3A1C7D0B75004DB449 /* InstagramAPI.swift in Sources */,
 				3133A7851C80C2DC001F0296 /* Comment.swift in Sources */,
+				31E44FB61C813B5200116F11 /* MediaViewModel.swift in Sources */,
 				3104FDCF1C7E122F00B54828 /* InstagramOAuth.swift in Sources */,
 				3133A7811C80C082001F0296 /* ImagesViewModel.swift in Sources */,
 				3133A7831C80C262001F0296 /* Media.swift in Sources */,
