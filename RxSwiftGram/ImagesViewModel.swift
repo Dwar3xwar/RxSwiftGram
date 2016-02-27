@@ -21,6 +21,10 @@ class ImagesViewModel: NSObject {
     
     private func setup() {
         
+        requestUserFeed()
+            .bindTo(instagramPosts)
+            .addDisposableTo(rx_disposeBag)
+        
         instagramPosts
             .asObservable()
             .subscribeNext{print($0)}
