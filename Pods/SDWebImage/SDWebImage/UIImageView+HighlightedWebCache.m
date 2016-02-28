@@ -39,12 +39,7 @@
             dispatch_main_sync_safe (^
                                      {
                                          if (!wself) return;
-                                         if (image && (options & SDWebImageAvoidAutoSetImage) && completedBlock)
-                                         {
-                                             completedBlock(image, error, cacheType, url);
-                                             return;
-                                         }
-                                         else if (image) {
+                                         if (image) {
                                              wself.highlightedImage = image;
                                              [wself setNeedsLayout];
                                          }

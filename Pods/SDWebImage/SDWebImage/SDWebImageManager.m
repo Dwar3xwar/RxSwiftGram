@@ -133,7 +133,7 @@
         isFailedUrl = [self.failedURLs containsObject:url];
     }
 
-    if (url.absoluteString.length == 0 || (!(options & SDWebImageRetryFailed) && isFailedUrl)) {
+    if (!url || (!(options & SDWebImageRetryFailed) && isFailedUrl)) {
         dispatch_main_sync_safe(^{
             NSError *error = [NSError errorWithDomain:NSURLErrorDomain code:NSURLErrorFileDoesNotExist userInfo:nil];
             completedBlock(nil, error, SDImageCacheTypeNone, YES, url);
@@ -158,7 +158,7 @@
         if ((!image || options & SDWebImageRefreshCached) && (![self.delegate respondsToSelector:@selector(imageManager:shouldDownloadImageForURL:)] || [self.delegate imageManager:self shouldDownloadImageForURL:url])) {
             if (image && options & SDWebImageRefreshCached) {
                 dispatch_main_sync_safe(^{
-                    // If image was found in the cache but SDWebImageRefreshCached is provided, notify about the cached image
+                    // If image was found in the cache bug SDWebImageRefreshCached is provided, notify about the cached image
                     // AND try to re-download it in order to let a chance to NSURLCache to refresh it from server.
                     completedBlock(image, nil, cacheType, YES, url);
                 });
@@ -180,26 +180,21 @@
                 downloaderOptions |= SDWebImageDownloaderIgnoreCachedResponse;
             }
             id <SDWebImageOperation> subOperation = [self.imageDownloader downloadImageWithURL:url options:downloaderOptions progress:progressBlock completed:^(UIImage *downloadedImage, NSData *data, NSError *error, BOOL finished) {
-                __strong __typeof(weakOperation) strongOperation = weakOperation;
-                if (!strongOperation || strongOperation.isCancelled) {
+                if (weakOperation.isCancelled) {
                     // Do nothing if the operation was cancelled
                     // See #699 for more details
                     // if we would call the completedBlock, there could be a race condition between this block and another completedBlock for the same object, so if this one is called second, we will overwrite the new data
                 }
                 else if (error) {
                     dispatch_main_sync_safe(^{
-                        if (strongOperation && !strongOperation.isCancelled) {
+                        if (!weakOperation.isCancelled) {
                             completedBlock(nil, error, SDImageCacheTypeNone, finished, url);
                         }
                     });
 
-                    if (   error.code != NSURLErrorNotConnectedToInternet
-                        && error.code != NSURLErrorCancelled
-                        && error.code != NSURLErrorTimedOut
-                        && error.code != NSURLErrorInternationalRoamingOff
-                        && error.code != NSURLErrorDataNotAllowed
-                        && error.code != NSURLErrorCannotFindHost
-                        && error.code != NSURLErrorCannotConnectToHost) {
+                    BOOL shouldBeFailedURLAlliOSVersion = (error.code != NSURLErrorNotConnectedToInternet && error.code != NSURLErrorCancelled && error.code != NSURLErrorTimedOut);
+                    BOOL shouldBeFailedURLiOS7 = (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1 && error.code != NSURLErrorInternationalRoamingOff && error.code != NSURLErrorCallIsActive && error.code != NSURLErrorDataNotAllowed);
+                    if (shouldBeFailedURLAlliOSVersion || shouldBeFailedURLiOS7) {
                         @synchronized (self.failedURLs) {
                             [self.failedURLs addObject:url];
                         }
@@ -227,7 +222,7 @@
                             }
 
                             dispatch_main_sync_safe(^{
-                                if (strongOperation && !strongOperation.isCancelled) {
+                                if (!weakOperation.isCancelled) {
                                     completedBlock(transformedImage, nil, SDImageCacheTypeNone, finished, url);
                                 }
                             });
@@ -239,7 +234,7 @@
                         }
 
                         dispatch_main_sync_safe(^{
-                            if (strongOperation && !strongOperation.isCancelled) {
+                            if (!weakOperation.isCancelled) {
                                 completedBlock(downloadedImage, nil, SDImageCacheTypeNone, finished, url);
                             }
                         });
@@ -248,9 +243,7 @@
 
                 if (finished) {
                     @synchronized (self.runningOperations) {
-                        if (strongOperation) {
-                            [self.runningOperations removeObject:strongOperation];
-                        }
+                        [self.runningOperations removeObject:operation];
                     }
                 }
             }];
@@ -258,17 +251,13 @@
                 [subOperation cancel];
                 
                 @synchronized (self.runningOperations) {
-                    __strong __typeof(weakOperation) strongOperation = weakOperation;
-                    if (strongOperation) {
-                        [self.runningOperations removeObject:strongOperation];
-                    }
+                    [self.runningOperations removeObject:weakOperation];
                 }
             };
         }
         else if (image) {
             dispatch_main_sync_safe(^{
-                __strong __typeof(weakOperation) strongOperation = weakOperation;
-                if (strongOperation && !strongOperation.isCancelled) {
+                if (!weakOperation.isCancelled) {
                     completedBlock(image, nil, cacheType, YES, url);
                 }
             });
@@ -279,8 +268,7 @@
         else {
             // Image not in cache and download disallowed by delegate
             dispatch_main_sync_safe(^{
-                __strong __typeof(weakOperation) strongOperation = weakOperation;
-                if (strongOperation && !weakOperation.isCancelled) {
+                if (!weakOperation.isCancelled) {
                     completedBlock(nil, nil, SDImageCacheTypeNone, YES, url);
                 }
             });
@@ -309,11 +297,7 @@
 }
 
 - (BOOL)isRunning {
-    BOOL isRunning = NO;
-    @synchronized(self.runningOperations) {
-        isRunning = (self.runningOperations.count > 0);
-    }
-    return isRunning;
+    return self.runningOperations.count > 0;
 }
 
 @end
