@@ -7,9 +7,11 @@ enum MediaType: String {
     case Video = "video"
 }
 
+
 struct Media {
     
     var id: String?
+    var caption: String?
     var type: MediaType?
     var user: User?
     
@@ -36,6 +38,7 @@ extension Media: Mappable {
     mutating func mapping(map: Map) {
         id <- map["id"]
         type <- (map["type"], setMediaType)
+        caption <- map["caption"]
         
         standardResolutionURL <- (map["images.standard_resolution.url"], transformURLString)
         thumbnailURL <- (map["images.thumbnail.url"], transformURLString)

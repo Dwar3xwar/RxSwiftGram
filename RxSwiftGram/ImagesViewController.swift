@@ -13,6 +13,8 @@ import Moya
 import ObjectMapper
 import SDWebImage
 
+typealias ShowDetailsClosure = (Media) -> Void
+
 class ImagesViewController: UITableViewController {
     
     var downloadImage: ImagesViewCell.DownloadImageClosure = { (url, imageView) -> () in
@@ -28,7 +30,7 @@ class ImagesViewController: UITableViewController {
     let provider = RxMoyaProvider<InstagramAPI>(requestClosure: requestClosure)
     
     lazy var viewModel: ImagesViewModel = {
-        return ImagesViewModel()
+        return ImagesViewModel(showDetails: applyUnowned(self, ImagesViewController.showDetailsForMedia))
     }()
 
     override func viewDidLoad() {
@@ -42,9 +44,18 @@ class ImagesViewController: UITableViewController {
                 me.tableView.reloadData()
             }
             .observeOn(MainScheduler.instance)
-            .subscribeNext { _ in
-                print("reloading")
-            }.addDisposableTo(rx_disposeBag)
+            .subscribeNext {}
+            .addDisposableTo(rx_disposeBag)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == SegueIdentifiers.DetailViewController.rawValue {
+            let selectedIndex = tableView.indexPathForSelectedRow
+            let selectedMedia = viewModel.mediaAtIndexPath(selectedIndex!)
+            
+            let detailsViewController = segue.destinationViewController as! DetailViewController
+            
+        }
     }
     
 }
@@ -60,7 +71,6 @@ extension ImagesViewController {
         if let imagesCell = cell as? ImagesViewCell {
             
             imagesCell.downloadImage = downloadImage
-            
             imagesCell.setViewModel(viewModel.mediaViewModelAtIndexPath(indexPath))
         }
     
@@ -71,5 +81,16 @@ extension ImagesViewController {
 extension ImagesViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 300
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+}
+
+private extension ImagesViewController {
+    func showDetailsForMedia(media: Media) {
+
+        performSegueWithIdentifier(SegueIdentifiers.DetailViewController.rawValue, sender: viewModel)
     }
 }

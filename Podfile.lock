@@ -42,7 +42,7 @@ DEPENDENCIES:
   - RxCocoa (~> 2.0)
   - RxSwift (~> 2.0)
   - RxWebKit
-  - SDWebImage (~> 3.7)
+  - SDWebImage (<= 3.73)
 
 SPEC CHECKSUMS:
   Alamofire: 4da478599fccddff361205c8929333d7fe18dceb

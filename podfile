@@ -9,5 +9,5 @@ pod 'Moya/RxSwift'
 pod 'RxWebKit'
 pod 'NSObject+Rx'
 
-pod 'SDWebImage', '~>3.7'
+pod 'SDWebImage', '<= 3.73'
 pod "FMMosaicLayout"

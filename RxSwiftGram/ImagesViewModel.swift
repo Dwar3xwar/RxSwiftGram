@@ -22,7 +22,7 @@ class ImagesViewModel: NSObject {
         
     }
     
-    override init(){
+    init(showDetails: ShowDetailsClosure){
         super.init()
         setup()
     }
@@ -48,7 +48,10 @@ class ImagesViewModel: NSObject {
     func mediaViewModelAtIndexPath(indexPath: NSIndexPath) -> MediaViewModel {
         return instagramPosts.value[indexPath.row].viewModel
     }
-
+    
+    func mediaAtIndexPath(indexPath: NSIndexPath) -> Media {
+        return instagramPosts.value[indexPath.row]
+    }
 
     
     
