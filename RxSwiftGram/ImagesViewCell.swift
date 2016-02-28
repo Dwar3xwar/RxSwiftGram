@@ -14,11 +14,11 @@ class ImagesViewCell: UITableViewCell {
     typealias DownloadImageClosure = (url: NSURL?, imageView: UIImageView) -> ()
     typealias CancelDownloadImageClosure = (imageView: UIImageView) -> ()
     
-    @IBOutlet weak var usernameOutlet: UILabel!
     
     @IBOutlet weak var mediaImageOutlet: UIImageView!
 
 
+    @IBOutlet weak var usernameOutlet: UILabel!
     @IBOutlet weak var captionOutlet: UILabel!
     
     var downloadImage: DownloadImageClosure?
@@ -34,7 +34,8 @@ class ImagesViewCell: UITableViewCell {
     }
     
     private func setup() {
-        viewModel.map { $0.user?.username ?? "LOL NO NAME" }
+
+        viewModel.map { $0.user?.username ?? "" }
             .bindTo(usernameOutlet.rx_text)
             .addDisposableTo(rx_disposeBag)
         
@@ -43,7 +44,7 @@ class ImagesViewCell: UITableViewCell {
             .addDisposableTo(rx_disposeBag)
         
         viewModel.map { (viewModel) -> NSURL? in
-            return viewModel.lowResolutionURL
+            return viewModel.standardResolutionURL
             }.subscribeNext { [weak self] url in
                 guard let imageView = self?.mediaImageOutlet else { return }
                 self?.downloadImage?(url: url, imageView: imageView)

@@ -36,6 +36,8 @@ class ImagesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
         // Reload table everytime there is new content
         viewModel
             .updatedContent
@@ -72,6 +74,9 @@ extension ImagesViewController {
             
             imagesCell.downloadImage = downloadImage
             imagesCell.setViewModel(viewModel.mediaViewModelAtIndexPath(indexPath))
+            
+            cell.setNeedsUpdateConstraints()
+            cell.updateConstraintsIfNeeded()
         }
     
         return cell
@@ -79,12 +84,13 @@ extension ImagesViewController {
 }
 
 extension ImagesViewController {
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 400
-    }
-    
+
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+    }
+    
+    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 44
     }
 }
 
