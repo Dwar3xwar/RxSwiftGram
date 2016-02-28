@@ -37,7 +37,7 @@ class ImagesViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.rowHeight = UITableViewAutomaticDimension
-        
+                
         // Reload table everytime there is new content
         viewModel
             .updatedContent
@@ -50,15 +50,6 @@ class ImagesViewController: UITableViewController {
             .addDisposableTo(rx_disposeBag)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == SegueIdentifiers.DetailViewController.rawValue {
-            let selectedIndex = tableView.indexPathForSelectedRow
-            let selectedMedia = viewModel.mediaAtIndexPath(selectedIndex!)
-            
-            let detailsViewController = segue.destinationViewController as! DetailViewController
-            
-        }
-    }
     
 }
 
@@ -85,9 +76,6 @@ extension ImagesViewController {
 
 extension ImagesViewController {
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-    }
     
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 44
@@ -97,6 +85,6 @@ extension ImagesViewController {
 private extension ImagesViewController {
     func showDetailsForMedia(media: Media) {
 
-        performSegueWithIdentifier(SegueIdentifiers.DetailViewController.rawValue, sender: viewModel)
+        //performSegueWithIdentifier(SegueIdentifiers.DetailViewController.rawValue, sender: viewModel)
     }
 }

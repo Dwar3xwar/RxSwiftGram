@@ -6,7 +6,7 @@ struct User {
     var id: String?
     var username: String?
     var fullName: String?
-    var profilePicture: String?
+    var profilePicture: NSURL?
 }
 
 extension User: Equatable {}
@@ -27,6 +27,6 @@ extension User: Mappable {
         id <- map["id"]
         username <- map["username"]
         fullName <- map["full_name"]
-        profilePicture <- map["profile_picture"]
+        profilePicture <- (map["profile_picture"], transformURLString)
     }
 }

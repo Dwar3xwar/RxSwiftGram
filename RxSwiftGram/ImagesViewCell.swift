@@ -18,6 +18,8 @@ class ImagesViewCell: UITableViewCell {
     @IBOutlet weak var mediaImageOutlet: UIImageView!
 
 
+    @IBOutlet weak var usernameTopOutlet: UILabel!
+    @IBOutlet weak var userProfileImageOutlet: UIImageView!
     @IBOutlet weak var usernameOutlet: UILabel!
     @IBOutlet weak var captionOutlet: UILabel!
     
@@ -30,18 +32,32 @@ class ImagesViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .None
         setup()
     }
     
     private func setup() {
 
-        viewModel.map { $0.user?.username ?? "" }
+        let username = viewModel.map { $0.user?.username ?? "" }
+                .shareReplay(1)
+        username
             .bindTo(usernameOutlet.rx_text)
+            .addDisposableTo(rx_disposeBag)
+        
+        username
+            .bindTo(usernameTopOutlet.rx_text)
             .addDisposableTo(rx_disposeBag)
         
         viewModel.map { $0.caption ?? "" }
             .bindTo(captionOutlet.rx_text)
             .addDisposableTo(rx_disposeBag)
+        
+        viewModel.map { (viewModel) -> NSURL? in
+            return viewModel.user?.profilePicture
+        }.subscribeNext { [weak self] url in
+            guard let imageView = self?.userProfileImageOutlet else { return }
+            self?.downloadImage?(url: url, imageView: imageView)
+        }.addDisposableTo(rx_disposeBag)
         
         viewModel.map { (viewModel) -> NSURL? in
             return viewModel.standardResolutionURL
