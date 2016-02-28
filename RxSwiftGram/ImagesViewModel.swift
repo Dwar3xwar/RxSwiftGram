@@ -29,6 +29,7 @@ class ImagesViewModel: NSObject {
     
     private func setup() {
         
+
         requestUserFeed()
             .takeUntil(rx_deallocated)
             .bindTo(instagramPosts)

@@ -18,6 +18,8 @@ class ImagesViewCell: UITableViewCell {
     
     @IBOutlet weak var mediaImageOutlet: UIImageView!
 
+
+    @IBOutlet weak var captionOutlet: UILabel!
     
     var downloadImage: DownloadImageClosure?
     
@@ -36,10 +38,14 @@ class ImagesViewCell: UITableViewCell {
             .bindTo(usernameOutlet.rx_text)
             .addDisposableTo(rx_disposeBag)
         
+        viewModel.map { $0.caption ?? "" }
+            .bindTo(captionOutlet.rx_text)
+            .addDisposableTo(rx_disposeBag)
+        
         viewModel.map { (viewModel) -> NSURL? in
-            return viewModel.standardResolutionURL
+            return viewModel.lowResolutionURL
             }.subscribeNext { [weak self] url in
-                guard let imageView = self?.imageView else { return }
+                guard let imageView = self?.mediaImageOutlet else { return }
                 self?.downloadImage?(url: url, imageView: imageView)
             }.addDisposableTo(rx_disposeBag)
     }

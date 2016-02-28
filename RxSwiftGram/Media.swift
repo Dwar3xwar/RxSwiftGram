@@ -38,7 +38,7 @@ extension Media: Mappable {
     mutating func mapping(map: Map) {
         id <- map["id"]
         type <- (map["type"], setMediaType)
-        caption <- map["caption"]
+        caption <- map["caption.text"]
         
         standardResolutionURL <- (map["images.standard_resolution.url"], transformURLString)
         thumbnailURL <- (map["images.thumbnail.url"], transformURLString)

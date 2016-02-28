@@ -33,6 +33,7 @@ class MediaTest: XCTestCase {
         let JSON: [String: AnyObject] = [
             "id": "3",
             "type": "image",
+            "caption": "LOL",
             "user" : [
                 "username" : "KevinS",
                 "full_name" : "Kevin",
@@ -47,6 +48,7 @@ class MediaTest: XCTestCase {
         
         print(media)
         XCTAssertEqual(media.id, "3")
+        XCTAssertEqual(media.caption, "LOL")
     }
     
     func testMediaMapsUserJSON(){

@@ -11,6 +11,7 @@ import Foundation
 class MediaViewModel {
     
     var id: String?
+    var caption: String?
     var type: MediaType?
     var user: User?
     
@@ -20,8 +21,10 @@ class MediaViewModel {
     
     init(media: Media) {
         id = media.id
+        caption = media.caption
         type = media.type
         user = media.user
+        
         
         standardResolutionURL = media.standardResolutionURL
         lowResolutionURL = media.lowResolutionURL
