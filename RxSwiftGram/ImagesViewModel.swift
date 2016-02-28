@@ -28,12 +28,19 @@ class ImagesViewModel: NSObject {
     }
     
     private func setup() {
-        
 
         requestUserFeed()
             .takeUntil(rx_deallocated)
             .bindTo(instagramPosts)
             .addDisposableTo(rx_disposeBag)
+        
+        let latestMediaId = instagramPosts.asObservable()
+            .map { $0.last?.id }
+        
+        
+        
+        
+        
 
     }
     
