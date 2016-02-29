@@ -12,9 +12,10 @@ import Moya
 
 let requestClosure = { (endpoint: Endpoint<InstagramAPI>, done: NSURLRequest -> Void) in
     let request = endpoint.urlRequest
-    InstagramOAuth.sharedProvider.signRequest(request) { request in
+    done(request)
+    /*InstagramOAuth.sharedProvider.signRequest(request) { request in
         done(request)
-    }
+    }*/
 }
 
 enum InstagramAPI {
@@ -61,7 +62,7 @@ extension InstagramAPI: TargetType {
     var parameters: [String: AnyObject]? {
         switch self {
         default:
-            return nil
+            return ["access_token": AppSetup.sharedState.accessToken]
         }
     }
     

@@ -7,6 +7,10 @@ struct User {
     var username: String?
     var fullName: String?
     var profilePicture: NSURL?
+    
+    lazy var viewModel: UserViewModel = {
+        return UserViewModel(user: self)
+    }()
 }
 
 extension User: Equatable {}
