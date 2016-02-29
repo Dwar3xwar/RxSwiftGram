@@ -22,7 +22,7 @@ enum InstagramAPI {
     case UserSelf
     case UserFeed
     case UserGet(userId: String)
-    case UserSearch(name: String)
+    case UserSearch(query: String)
     case UserLastLiked
     
     case MediaGet(id: String)
@@ -42,6 +42,8 @@ extension InstagramAPI: TargetType {
             return "/users/"
         case .UserLastLiked:
             return "/users/self/media/recent/"
+        case .UserSearch:
+            return "/users/search"
             
         case .MediaGet(let id):
             return "/media/\(id)"
@@ -61,6 +63,9 @@ extension InstagramAPI: TargetType {
     
     var parameters: [String: AnyObject]? {
         switch self {
+        case let .UserSearch(query):
+            return ["q": query,
+                    "access_token": AppSetup.sharedState.accessToken]
         default:
             return ["access_token": AppSetup.sharedState.accessToken]
         }
