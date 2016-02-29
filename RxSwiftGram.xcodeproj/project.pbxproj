@@ -12,6 +12,7 @@
 		3122012C1C84AF9A00FEF7CB /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3122012B1C84AF9A00FEF7CB /* SearchUserViewController.swift */; };
 		3122012E1C84B58100FEF7CB /* SearchUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3122012D1C84B58100FEF7CB /* SearchUserViewModel.swift */; };
 		312201301C84B5E300FEF7CB /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3122012F1C84B5E300FEF7CB /* UserViewModel.swift */; };
+		312201321C84E7D300FEF7CB /* SearchUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312201311C84E7D300FEF7CB /* SearchUserCell.swift */; };
 		3126DE771C82288E001774F7 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3126DE761C82288E001774F7 /* ExploreViewController.swift */; };
 		3126DE7B1C822AB2001774F7 /* ExploreViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3126DE7A1C822AB2001774F7 /* ExploreViewCell.swift */; };
 		3126DE7D1C822ABA001774F7 /* ExploreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3126DE7C1C822ABA001774F7 /* ExploreViewModel.swift */; };
@@ -65,6 +66,7 @@
 		3122012B1C84AF9A00FEF7CB /* SearchUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserViewController.swift; sourceTree = "<group>"; };
 		3122012D1C84B58100FEF7CB /* SearchUserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserViewModel.swift; sourceTree = "<group>"; };
 		3122012F1C84B5E300FEF7CB /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		312201311C84E7D300FEF7CB /* SearchUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserCell.swift; sourceTree = "<group>"; };
 		3126DE761C82288E001774F7 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		3126DE7A1C822AB2001774F7 /* ExploreViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewCell.swift; sourceTree = "<group>"; };
 		3126DE7C1C822ABA001774F7 /* ExploreViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewModel.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			children = (
 				3122012B1C84AF9A00FEF7CB /* SearchUserViewController.swift */,
 				3122012D1C84B58100FEF7CB /* SearchUserViewModel.swift */,
+				312201311C84E7D300FEF7CB /* SearchUserCell.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 				31E2AFFC1C7D024E00DB1F74 /* SegueIdentifiers.swift in Sources */,
 				3122012C1C84AF9A00FEF7CB /* SearchUserViewController.swift in Sources */,
 				3126DE831C82431D001774F7 /* ProfileViewController.swift in Sources */,
+				312201321C84E7D300FEF7CB /* SearchUserCell.swift in Sources */,
 				31E44FB21C812D7500116F11 /* Moya-ObjectMapper+Extensions.swift in Sources */,
 				3122012E1C84B58100FEF7CB /* SearchUserViewModel.swift in Sources */,
 				31E2B0001C7D045200DB1F74 /* AppSetup.swift in Sources */,

@@ -65,7 +65,8 @@ extension InstagramAPI: TargetType {
         switch self {
         case let .UserSearch(query):
             return ["q": query,
-                    "access_token": AppSetup.sharedState.accessToken]
+                    "access_token": AppSetup.sharedState.accessToken,
+                    "count": 5]
         default:
             return ["access_token": AppSetup.sharedState.accessToken]
         }

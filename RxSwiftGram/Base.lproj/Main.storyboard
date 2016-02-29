@@ -345,7 +345,7 @@
         <scene sceneID="Xxg-TI-qlt">
             <objects>
                 <tableViewController id="rIf-NL-JeZ" customClass="SearchUserController" customModule="RxSwiftGram" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="xkY-Uh-ueI">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="96" sectionHeaderHeight="28" sectionFooterHeight="28" id="xkY-Uh-ueI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -355,13 +355,46 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Ujx-7o-jgl">
-                                <rect key="frame" x="0.0" y="136" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchUserCell" rowHeight="96" id="Ujx-7o-jgl" customClass="SearchUserCell" customModule="RxSwiftGram" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="136" width="600" height="96"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ujx-7o-jgl" id="MdL-zt-7Db">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="95"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GQA-Mh-kK1">
+                                            <rect key="frame" x="23" y="18" width="59" height="59"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="GQA-Mh-kK1" secondAttribute="height" multiplier="1:1" id="N8w-Pu-fTU"/>
+                                                <constraint firstAttribute="height" constant="42" id="RX8-YK-afI"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="RX8-YK-afI"/>
+                                                </mask>
+                                            </variation>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqJ-Bp-SX5">
+                                            <rect key="frame" x="97" y="18" width="480" height="59"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="eqJ-Bp-SX5" firstAttribute="top" secondItem="MdL-zt-7Db" secondAttribute="topMargin" constant="10" id="5Ku-D2-F4t"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="eqJ-Bp-SX5" secondAttribute="trailing" constant="15" id="CMa-ir-Mka"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="eqJ-Bp-SX5" secondAttribute="bottom" constant="10" id="E6I-pz-W5n"/>
+                                        <constraint firstItem="eqJ-Bp-SX5" firstAttribute="leading" secondItem="GQA-Mh-kK1" secondAttribute="trailing" constant="15" id="O7s-ci-cYt"/>
+                                        <constraint firstItem="GQA-Mh-kK1" firstAttribute="top" secondItem="MdL-zt-7Db" secondAttribute="topMargin" constant="10" id="VCd-V3-TVx"/>
+                                        <constraint firstItem="GQA-Mh-kK1" firstAttribute="leading" secondItem="MdL-zt-7Db" secondAttribute="leadingMargin" constant="15" id="qos-PV-piy"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="GQA-Mh-kK1" secondAttribute="bottom" constant="10" id="wP2-6n-Cy1"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="profileImageOutlet" destination="GQA-Mh-kK1" id="ydq-Id-UsK"/>
+                                    <outlet property="usernameOutlet" destination="eqJ-Bp-SX5" id="lzG-YH-4hX"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
