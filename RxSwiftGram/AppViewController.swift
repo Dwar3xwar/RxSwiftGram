@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class AppViewController: UIViewController, UINavigationControllerDelegate {
-    var accessToken = AppSetup.sharedState.accessToken
+    var accessToken = AppSetup.sharedState.accessToken.value
     var hasAccessToken = AppSetup.sharedState.hasAccessToken
     
     override func viewDidAppear(animated: Bool) {
@@ -22,4 +22,6 @@ class AppViewController: UIViewController, UINavigationControllerDelegate {
         }
         
     }
+    
+
 }

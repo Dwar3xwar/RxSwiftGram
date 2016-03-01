@@ -28,9 +28,10 @@ class ImagesViewModel: NSObject {
     }
     
     private func setup() {
+        
+        print(AppSetup.sharedState.accessToken.value)
 
         requestUserFeed()
-            .takeUntil(rx_deallocated)
             .bindTo(instagramPosts)
             .addDisposableTo(rx_disposeBag)
 
