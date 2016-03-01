@@ -278,7 +278,12 @@
                             <outlet property="delegate" destination="cSy-WO-yDs" id="wpq-Fm-iFH"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="xwv-Ax-yFz"/>
+                    <navigationItem key="navigationItem" id="xwv-Ax-yFz">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="lej-VW-QPO"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="refreshButton" destination="lej-VW-QPO" id="H6i-nq-w87"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tpo-Yy-pgW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

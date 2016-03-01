@@ -5,7 +5,7 @@ import Moya
 
 class ImagesViewModel: NSObject {
     
-    let provider = RxMoyaProvider<InstagramAPI>(requestClosure: requestClosure)
+    let provider = RxMoyaProvider<InstagramAPI>()
     
     private var instagramPosts = Variable(Array<Media>())
 
@@ -22,25 +22,18 @@ class ImagesViewModel: NSObject {
         
     }
     
-    init(showDetails: ShowDetailsClosure){
+    override init(){
         super.init()
         setup()
     }
     
     private func setup() {
+        
+        print(AppSetup.sharedState.accessToken.value)
 
         requestUserFeed()
-            .takeUntil(rx_deallocated)
             .bindTo(instagramPosts)
             .addDisposableTo(rx_disposeBag)
-        
-        let latestMediaId = instagramPosts.asObservable()
-            .map { $0.last?.id }
-        
-        
-        
-        
-        
 
     }
     
@@ -56,11 +49,6 @@ class ImagesViewModel: NSObject {
     func mediaViewModelAtIndexPath(indexPath: NSIndexPath) -> MediaViewModel {
         return instagramPosts.value[indexPath.row].viewModel
     }
-    
-    func mediaAtIndexPath(indexPath: NSIndexPath) -> Media {
-        return instagramPosts.value[indexPath.row]
-    }
-
     
     
 }

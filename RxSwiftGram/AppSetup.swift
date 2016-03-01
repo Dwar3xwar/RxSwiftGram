@@ -1,15 +1,9 @@
-//
-//  AppSetup.swift
-//  RxSwiftGram
-//
-//  Created by Eric Huang on 1/23/16.
-//  Copyright © 2016 Eric Huang. All rights reserved.
-//
 
 import Foundation
+import RxSwift
 
-class AppSetup {
-    var accessToken = ""
+class AppSetup: NSObject {
+    var accessToken = Variable<String>("")
     var hasAccessToken = false
     
     class var sharedState: AppSetup {
@@ -19,12 +13,19 @@ class AppSetup {
         return Static.instance
     }
     
-    init() {
+    override init() {
         let defaults = NSUserDefaults.standardUserDefaults()
         if let token = defaults.stringForKey("accessToken"){
-            accessToken = token
+            accessToken.value = token
         }
         
         hasAccessToken = defaults.boolForKey("hasAccessToken")
+        
+        super.init()
+        
+        NSNotificationCenter.defaultCenter().rx_notification("accessToken")
+            .map { $0.object as! String }
+            .bindTo(accessToken)
+            .addDisposableTo(rx_disposeBag)
     }
 }

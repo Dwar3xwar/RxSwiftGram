@@ -10,13 +10,7 @@ import Foundation
 import RxSwift
 import Moya
 
-let requestClosure = { (endpoint: Endpoint<InstagramAPI>, done: NSURLRequest -> Void) in
-    let request = endpoint.urlRequest
-    done(request)
-    /*InstagramOAuth.sharedProvider.signRequest(request) { request in
-        done(request)
-    }*/
-}
+private var accessToken = AppSetup.sharedState.accessToken.value
 
 enum InstagramAPI {
     case UserSelf
@@ -30,6 +24,7 @@ enum InstagramAPI {
 }
 
 extension InstagramAPI: TargetType {
+    
     var baseURL: NSURL { return NSURL(string: "https://api.instagram.com/v1")! }
     
     var path: String {
@@ -65,10 +60,10 @@ extension InstagramAPI: TargetType {
         switch self {
         case let .UserSearch(query):
             return ["q": query,
-                    "access_token": AppSetup.sharedState.accessToken,
+                    "access_token": accessToken,
                     "count": 5]
         default:
-            return ["access_token": AppSetup.sharedState.accessToken]
+            return ["access_token": accessToken]
         }
     }
     

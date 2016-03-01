@@ -25,12 +25,9 @@ class ImagesViewController: UITableViewController {
         }
     }
     
-
-    
-    let provider = RxMoyaProvider<InstagramAPI>(requestClosure: requestClosure)
     
     lazy var viewModel: ImagesViewModel = {
-        return ImagesViewModel(showDetails: applyUnowned(self, ImagesViewController.showDetailsForMedia))
+        return ImagesViewModel()
     }()
 
     override func viewDidLoad() {
@@ -82,9 +79,3 @@ extension ImagesViewController {
     }
 }
 
-private extension ImagesViewController {
-    func showDetailsForMedia(media: Media) {
-
-        //performSegueWithIdentifier(SegueIdentifiers.DetailViewController.rawValue, sender: viewModel)
-    }
-}
