@@ -21,12 +21,32 @@ class ExploreViewModel: NSObject {
         
     }
     
-    override init(){
+    var refreshOutlet: Observable<Void>
+    
+    init(refreshOutlet: Observable<Void>){
+        
+        self.refreshOutlet = refreshOutlet
+        
         super.init()
+        
+        setup()
+    }
+    
+    private func setup() {
         
         requestPopularMedia()
             .bindTo(popularInstagramPosts)
             .addDisposableTo(rx_disposeBag)
+        
+        refreshOutlet
+            .throttle(0.5, scheduler: MainScheduler.instance)
+            .map { [unowned self] _ in
+                self.requestPopularMedia()
+            }
+            .concat()
+            .bindTo(popularInstagramPosts)
+            .addDisposableTo(rx_disposeBag)
+
     }
     
     private func requestPopularMedia() -> Observable<[Media]> {

@@ -33,6 +33,8 @@ class LoginViewController: UIViewController {
                 defaults.setObject(accessToken, forKey: "accessToken")
                 defaults.setBool(true, forKey: "hasAccessToken")
                 
+                NSNotificationCenter.defaultCenter().postNotificationName("accessToken", object: accessToken)
+                
                 self.performSegueWithIdentifier(SegueIdentifiers.ImagesViewController.rawValue, sender: self)
             }
         

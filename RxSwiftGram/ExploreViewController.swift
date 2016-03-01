@@ -16,12 +16,16 @@ class ExploreViewController: UICollectionViewController {
         }
     }
 
+    @IBOutlet weak var refreshButton: UIBarButtonItem!
+    
     lazy var viewModel: ExploreViewModel = {
-        return ExploreViewModel()
+        return ExploreViewModel(refreshOutlet: self.refreshButton.rx_tap.asObservable())
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        refreshButton.rx_tap.asObservable()
         
         let mosiacLayout = FMMosaicLayout()
         collectionView?.collectionViewLayout = mosiacLayout
