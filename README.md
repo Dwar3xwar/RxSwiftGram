@@ -32,7 +32,7 @@ of this application. Currently, it is not possible to register a new client for 
   - Search for Instagram users
 
 ## Getting Started
-The app will prompt the user to login to their own Instagram account. After that is is free for your own use.
+The app will prompt the user to login to their own Instagram account. If you do not have one, make one from the official app.
 
 
 
