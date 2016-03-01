@@ -32,10 +32,6 @@ of this application. Currently, it is not possible to register a new client for 
   - Search for Instagram users
 
 ## Getting Started
-Make sure to install the necessary dependecies using:
-
-```pod install```
-
 The app will prompt the user to login to their own Instagram account. After that is is free for your own use.
 
 
