@@ -10,13 +10,6 @@ import Foundation
 import RxSwift
 import Moya
 
-let requestClosure = { (endpoint: Endpoint<InstagramAPI>, done: NSURLRequest -> Void) in
-    let request = endpoint.urlRequest
-    done(request)
-    /*InstagramOAuth.sharedProvider.signRequest(request) { request in
-        done(request)
-    }*/
-}
 
 enum InstagramAPI {
     case UserSelf

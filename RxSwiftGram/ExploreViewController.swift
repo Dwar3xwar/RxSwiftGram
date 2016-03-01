@@ -15,9 +15,7 @@ class ExploreViewController: UICollectionViewController {
             imageView.image = nil
         }
     }
-    
-    let provider = RxMoyaProvider<InstagramAPI>(requestClosure: requestClosure)
-    
+
     lazy var viewModel: ExploreViewModel = {
         return ExploreViewModel()
     }()

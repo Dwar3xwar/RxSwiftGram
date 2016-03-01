@@ -5,7 +5,7 @@ import Moya
 
 class ExploreViewModel: NSObject {
     
-    let provider = RxMoyaProvider<InstagramAPI>(requestClosure: requestClosure)
+    let provider = RxMoyaProvider<InstagramAPI>()
     
     private var popularInstagramPosts = Variable(Array<Media>())
     
